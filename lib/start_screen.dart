@@ -4,7 +4,6 @@ class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -18,11 +17,10 @@ class StartScreen extends StatelessWidget {
               style: TextStyle(fontSize: 26, color: Colors.white)),
           const SizedBox(height: 40),
           OutlinedButton(
-              style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                          side: BorderSide(color: Colors.red)))),
+              style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5))),
               onPressed: null,
               child: const Text('Start Quiz',
                   style: TextStyle(color: Colors.white))),
