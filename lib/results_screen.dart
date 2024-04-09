@@ -13,6 +13,7 @@ class ResultsScreen extends StatelessWidget {
     for (var i = 0; i < selectedAnswers.length; i++) {
       summary.add({
         'question_index': i,
+        'isCorrect': questions[i].answers[0] == selectedAnswers[i],
         'question': questions[i].question,
         'correctAnswer': questions[i].answers[0],
         'selectedAnswer': selectedAnswers[i],
@@ -27,7 +28,8 @@ class ResultsScreen extends StatelessWidget {
     final summaryData = getSummaryData();
     final numberOfQuestions = questions.length;
     final numberOfCorrectAnswers = summaryData
-        .where((data) => data['correctAnswer'] == data['selectedAnswer'])
+        .where((data) => data['isCorrect'] as bool)
+        .toList()
         .length;
 
     return SizedBox(
